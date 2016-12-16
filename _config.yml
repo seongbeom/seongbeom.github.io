@@ -24,4 +24,6 @@ paginate: 5
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
 theme: minima
