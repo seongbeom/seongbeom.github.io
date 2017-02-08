@@ -6,7 +6,8 @@ published: true
 
 몇가지 스프레드 연산자의 사용 예 정리겸. 
  
-> 원글: [6 Great Uses of the Spread Operator](https://davidwalsh.name/spread-operator)
+> [6 Great Uses of the Spread Operator](https://davidwalsh.name/spread-operator)  
+[Merge Object Properties with the Spread Operator](https://davidwalsh.name/merge-objects)
 
 ___
 
@@ -97,3 +98,42 @@ const arr2 = [...new Set(arr)] // [ 7, 3, 1 ]
 ```
 
 > 참고: [Set](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+### Object 결합
+
+```javascript
+const person = { name: 'David Walsh', gender: 'Male' };
+const tools = { computer: 'Mac', editor: 'Atom' };
+
+const summary = {...person, ...tools};
+/*
+Object {
+  "computer": "Mac",
+  "editor": "Atom",
+  "gender": "Male",
+  "name": "David Walsh",
+}
+*/
+```
+
+키가 중복시 마지막(오른쪽) Object의 값이 승리한다.
+
+```javascript
+onst person1 = { name: 'David Walsh', age: 33 };
+const person2 = { name: 'David Walsh Jr.', role: 'kid' };
+
+const merged = {...person1, ...person2}
+/*
+Object {
+  "name": "David Walsh Jr.",
+  "age": 33,
+  "role": "kid",
+}
+*/
+```
+
+> `Object.assign`를 통해서도 같은 작업을 할 수 있다.  
+
+> 이 문법은 아직 모든 브라우저에서 지원되지 않는다. Babel의 `transform-object-rest-spread` 플러그인을 사용하면 스프레드 연산자로 Object 결합이 가능하다.
+
+
