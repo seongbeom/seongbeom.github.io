@@ -119,7 +119,7 @@ Object {
 키가 중복시 마지막(오른쪽) Object의 값이 승리한다.
 
 ```javascript
-onst person1 = { name: 'David Walsh', age: 33 };
+const person1 = { name: 'David Walsh', age: 33 };
 const person2 = { name: 'David Walsh Jr.', role: 'kid' };
 
 const merged = {...person1, ...person2}
